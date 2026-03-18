@@ -1,519 +1,1921 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katy's Grooming - Premium Pet Grooming Services</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katy's Grooming | Premier Pet Grooming in Austin, TX</title>
+  <meta name="description" content="Katy's Grooming – Austin's most-loved pet groomer. Expert grooming for dogs & cats in Northwest Austin. Book your appointment today at Balcones Animal Hospital." />
+  <meta name="keywords" content="pet grooming Austin TX, dog grooming Austin, cat grooming Austin, Katy's Grooming, McNeil Dr grooming, Northwest Austin dog groomer" />
+  <meta property="og:title" content="Katy's Grooming | Premier Pet Grooming in Austin, TX" />
+  <meta property="og:description" content="Where tails wag and cats purr. Expert, loving pet grooming in Northwest Austin." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FAF6F0;
+      --warm-white: #FEF9F3;
+      --sage: #8BAF85;
+      --sage-light: #B8D4B2;
+      --sage-dark: #5C8057;
+      --terracotta: #C96B3F;
+      --terracotta-light: #E8956D;
+      --tan: #D4B896;
+      --tan-light: #EDD9C4;
+      --brown: #6B4C35;
+      --deep: #2C3E2D;
+      --text: #3A3028;
+      --text-light: #7A6858;
+      --gold: #C8A96E;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ===================== NAVBAR ===================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 5%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(250, 246, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(139, 175, 133, 0.2);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(60, 48, 40, 0.08); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-paw {
+      width: 40px; height: 40px;
+      background: var(--sage);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .nav-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--deep);
+      line-height: 1;
+    }
+    .nav-logo-text span {
+      font-family: 'Caveat', cursive;
+      font-size: 0.85rem;
+      color: var(--terracotta);
+      display: block;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-light);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sage-dark); }
+
+    .nav-cta {
+      background: var(--terracotta);
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--brown) !important; transform: translateY(-1px); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+
+    /* ===================== HERO ===================== */
+    #hero {
+      min-height: 100vh;
+      padding-top: 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 80%, rgba(139,175,133,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(201,107,63,0.1) 0%, transparent 50%);
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 5% 80px 8%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(139,175,133,0.2);
+      color: var(--sage-dark);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      width: fit-content;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--deep);
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      max-width: 460px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.8s 0.2s ease both;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--terracotta);
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+      box-shadow: 0 8px 24px rgba(201,107,63,0.3);
+    }
+    .btn-primary:hover { background: var(--brown); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,107,63,0.4); }
+
+    .btn-secondary {
+      border: 2px solid var(--sage);
+      color: var(--sage-dark);
+      padding: 14px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+    }
+    .btn-secondary:hover { background: var(--sage); color: #fff; transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 52px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(139,175,133,0.3);
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+    .stat-item { text-align: left; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 500;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 8% 60px 4%;
+      animation: fadeIn 1s 0.3s ease both;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .hero-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 200px 200px 40px 40px;
+      object-fit: cover;
+      background: linear-gradient(160deg, #B8D4B2 0%, #8BAF85 40%, #C96B3F 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 120px;
+      box-shadow: 0 32px 80px rgba(60, 48, 40, 0.15);
+      overflow: hidden;
+    }
+
+    /* Dog SVG illustration placeholder */
+    .hero-dog-illustration {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, #c8e4c2 0%, #8BAF85 60%, #d4b896 100%);
+      font-size: 80px;
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 18px;
+      box-shadow: 0 12px 40px rgba(60,48,40,0.12);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-badge-float.top-left {
+      top: 40px; left: -24px;
+      animation: float 3s ease-in-out infinite;
+    }
+    .hero-badge-float.bottom-right {
+      bottom: 60px; right: -24px;
+      animation: float 3s 1.5s ease-in-out infinite;
+    }
+    .badge-icon { font-size: 1.6rem; }
+    .badge-text { font-size: 0.75rem; font-weight: 600; color: var(--text); }
+    .badge-sub { font-size: 0.68rem; color: var(--text-light); }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    /* ===================== SECTION SHARED ===================== */
+    section { padding: 100px 8%; }
+
+    .section-tag {
+      display: inline-block;
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      color: var(--terracotta);
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--deep);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: italic; color: var(--terracotta); }
+    .section-body {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.75;
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===================== ABOUT ===================== */
+    #about {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image-col { position: relative; }
+
+    .about-main-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 120px 120px 40px 40px;
+      background: linear-gradient(145deg, #B8D4B2, #8BAF85, #C96B3F);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 90px;
+      box-shadow: 20px 20px 60px rgba(60,48,40,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-accent-box {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      width: 160px;
+      background: var(--terracotta);
+      border-radius: 24px;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 12px 40px rgba(201,107,63,0.35);
+    }
+    .about-accent-box .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .about-accent-box .label { font-size: 0.75rem; font-weight: 600; opacity: 0.9; margin-top: 4px; }
+
+    .about-text-col {}
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .about-feat {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(139,175,133,0.2);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .about-feat:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(60,48,40,0.08); }
+    .about-feat-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .about-feat-title { font-weight: 600; font-size: 0.9rem; color: var(--deep); margin-bottom: 4px; }
+    .about-feat-text { font-size: 0.8rem; color: var(--text-light); line-height: 1.5; }
+
+    /* ===================== SERVICES ===================== */
+    #services { background: var(--warm-white); }
+    .services-header { text-align: center; margin-bottom: 60px; }
+    .services-header .section-body { margin: 0 auto; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 36px 28px;
+      border: 1px solid rgba(212, 184, 150, 0.25);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--sage);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(60,48,40,0.1); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card.featured { background: var(--deep); color: #fff; }
+    .service-card.featured::before { background: var(--terracotta-light); }
+    .service-card.featured .service-title,
+    .service-card.featured .service-text { color: rgba(255,255,255,0.9); }
+    .service-card.featured .service-price { color: var(--terracotta-light); }
+
+    .service-icon { font-size: 2.4rem; margin-bottom: 20px; display: block; }
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--deep);
+      margin-bottom: 12px;
+    }
+    .service-text { font-size: 0.875rem; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+    .service-includes { list-style: none; margin-bottom: 24px; }
+    .service-includes li {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-card.featured .service-includes li { color: rgba(255,255,255,0.7); }
+    .service-includes li::before { content: '✓'; color: var(--sage); font-weight: 700; }
+    .service-card.featured .service-includes li::before { color: var(--terracotta-light); }
+    .service-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--terracotta);
+    }
+    .service-price span { font-size: 0.85rem; font-family: 'DM Sans'; color: var(--text-light); font-weight: 400; }
+
+    /* ===================== PRICING ===================== */
+    #pricing { background: var(--cream); }
+    .pricing-header { text-align: center; margin-bottom: 60px; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border-radius: 28px;
+      padding: 40px 32px;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-card:hover { border-color: var(--sage-light); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(60,48,40,0.1); }
+    .pricing-card.popular {
+      background: var(--deep);
+      border-color: var(--sage);
+      transform: scale(1.04);
+    }
+    .popular-badge {
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      background: var(--terracotta);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 6px 20px;
+      border-radius: 0 0 16px 16px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .pricing-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--deep);
+      margin: 12px 0 8px;
+    }
+    .pricing-card.popular .pricing-name { color: #fff; }
+    .pricing-desc { font-size: 0.82rem; color: var(--text-light); margin-bottom: 24px; }
+    .pricing-card.popular .pricing-desc { color: rgba(255,255,255,0.6); }
+    .pricing-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      line-height: 1;
+    }
+    .pricing-amount sup { font-size: 1.4rem; vertical-align: super; }
+    .pricing-pet { font-size: 0.78rem; color: var(--text-light); margin-bottom: 28px; margin-top: 4px; }
+    .pricing-card.popular .pricing-pet { color: rgba(255,255,255,0.6); }
+    .pricing-list { list-style: none; text-align: left; margin-bottom: 32px; }
+    .pricing-list li {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(212,184,150,0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pricing-card.popular .pricing-list li { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.1); }
+    .pricing-list li::before { content: '🐾'; font-size: 0.75rem; }
+    .btn-book {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 100px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: 2px solid var(--sage);
+      color: var(--sage-dark);
+      background: transparent;
+      cursor: pointer;
+    }
+    .btn-book:hover { background: var(--sage); color: #fff; }
+    .pricing-card.popular .btn-book {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      color: #fff;
+    }
+    .pricing-card.popular .btn-book:hover { background: var(--terracotta-light); }
+
+    /* ===================== EXPERIENCE ===================== */
+    #experience { background: var(--deep); color: #fff; }
+    .exp-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .exp-text .section-title { color: #fff; }
+    .exp-text .section-body { color: rgba(255,255,255,0.65); }
+    .exp-timeline { margin-top: 48px; }
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 32px;
+      position: relative;
+    }
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px; top: 48px;
+      width: 2px;
+      height: calc(100% - 16px);
+      background: rgba(139,175,133,0.3);
+    }
+    .timeline-dot {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--sage);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-content {}
+    .timeline-year { font-size: 0.75rem; color: var(--terracotta-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .timeline-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .timeline-text { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    .exp-certs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .cert-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(139,175,133,0.2);
+      border-radius: 20px;
+      padding: 24px;
+      transition: background 0.25s;
+    }
+    .cert-card:hover { background: rgba(139,175,133,0.1); }
+    .cert-icon { font-size: 2rem; margin-bottom: 12px; }
+    .cert-title { font-weight: 600; font-size: 0.9rem; color: #fff; margin-bottom: 6px; }
+    .cert-text { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+    /* ===================== BEFORE / AFTER ===================== */
+    #before-after { background: var(--warm-white); }
+    .ba-header { text-align: center; margin-bottom: 60px; }
+    .ba-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .ba-card {
+      border-radius: 24px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 30px rgba(60,48,40,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .ba-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(60,48,40,0.12); }
+    .ba-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+    .ba-img {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+    }
+    .ba-before { background: linear-gradient(135deg, #d4b896, #c4a07a); }
+    .ba-after { background: linear-gradient(135deg, #B8D4B2, #8BAF85); }
+    .ba-divider {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px; height: 36px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 800;
+      color: var(--terracotta);
+      box-shadow: 0 4px 12px rgba(60,48,40,0.15);
+      z-index: 2;
+    }
+    .ba-info { padding: 20px 22px; }
+    .ba-breed { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; color: var(--deep); }
+    .ba-service { font-size: 0.78rem; color: var(--text-light); margin-top: 4px; }
+    .ba-labels {
+      display: flex;
+      gap: 8px;
+      padding: 10px 22px 20px;
+    }
+    .ba-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .ba-label.before { background: rgba(212,184,150,0.3); color: var(--brown); }
+    .ba-label.after { background: rgba(139,175,133,0.3); color: var(--sage-dark); }
+
+    /* ===================== GALLERY ===================== */
+    #gallery { background: var(--cream); }
+    .gallery-header { text-align: center; margin-bottom: 50px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .gallery-item {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover { transform: scale(1.02); }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(4) { grid-column: span 2; }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+    .g1 { background: linear-gradient(145deg, #B8D4B2, #8BAF85); min-height: 400px !important; font-size: 90px !important; }
+    .g2 { background: linear-gradient(145deg, #EDD9C4, #D4B896); }
+    .g3 { background: linear-gradient(145deg, #C8E4C2, #A8C8A0); }
+    .g4 { background: linear-gradient(145deg, #E8956D, #C96B3F); min-height: 200px; }
+    .g5 { background: linear-gradient(145deg, #D4C4B0, #C0A888); }
+    .g6 { background: linear-gradient(145deg, #8BAF85, #5C8057); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44,62,45,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-overlay span { color: #fff; font-size: 0.85rem; font-weight: 600; background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 100px; backdrop-filter: blur(4px); }
+
+    /* ===================== VIDEOS ===================== */
+    #videos { background: var(--warm-white); }
+    .videos-header { text-align: center; margin-bottom: 56px; }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .video-card {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(212,184,150,0.25);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .video-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(60,48,40,0.1); }
+    .video-thumb {
+      aspect-ratio: 16/9;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      overflow: hidden;
+    }
+    .v1 { background: linear-gradient(135deg, #B8D4B2, #5C8057); }
+    .v2 { background: linear-gradient(135deg, #EDD9C4, #C96B3F); }
+    .v3 { background: linear-gradient(135deg, #C8E4C2, #8BAF85); }
+    .video-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(44,62,45,0.3);
+      transition: background 0.25s;
+    }
+    .video-card:hover .video-play { background: rgba(44,62,45,0.5); }
+    .play-btn {
+      width: 56px; height: 56px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transition: transform 0.25s;
+    }
+    .video-card:hover .play-btn { transform: scale(1.1); }
+    .video-info { padding: 20px; }
+    .video-title { font-weight: 600; font-size: 0.95rem; color: var(--deep); margin-bottom: 6px; }
+    .video-meta { font-size: 0.78rem; color: var(--text-light); display: flex; align-items: center; gap: 10px; }
+    .video-views { display: flex; align-items: center; gap: 4px; }
+    .social-tag {
+      background: rgba(201,107,63,0.1);
+      color: var(--terracotta);
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    /* ===================== TESTIMONIALS ===================== */
+    #testimonials { background: var(--cream); }
+    .test-header { text-align: center; margin-bottom: 20px; }
+    .stars-overall {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 50px;
+    }
+    .star { font-size: 1.6rem; }
+    .rating-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--deep);
+      line-height: 1;
+    }
+    .rating-info { font-size: 0.85rem; color: var(--text-light); margin-top: 4px; }
+    .rating-summary { text-align: center; margin-bottom: 52px; }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .test-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 32px;
+      border: 1px solid rgba(212,184,150,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .test-card:hover { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(60,48,40,0.08); }
+    .test-card.featured { background: var(--deep); }
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      line-height: 0.8;
+      color: var(--sage-light);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .test-card.featured .quote-mark { color: rgba(139,175,133,0.3); }
+    .test-text { font-size: 0.92rem; line-height: 1.7; color: var(--text-light); margin-bottom: 24px; font-style: italic; }
+    .test-card.featured .test-text { color: rgba(255,255,255,0.7); }
+    .test-author { display: flex; align-items: center; gap: 12px; }
+    .test-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--sage-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .test-name { font-weight: 600; font-size: 0.9rem; color: var(--deep); }
+    .test-card.featured .test-name { color: #fff; }
+    .test-role { font-size: 0.78rem; color: var(--text-light); }
+    .test-card.featured .test-role { color: rgba(255,255,255,0.5); }
+    .test-stars { display: flex; gap: 2px; margin-bottom: 12px; }
+    .test-stars span { font-size: 0.9rem; }
+
+    /* ===================== CTA ===================== */
+    #cta {
+      background: linear-gradient(135deg, var(--sage-dark) 0%, var(--deep) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 60% 40%, rgba(201,107,63,0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .cta-paw { font-size: 3rem; display: block; margin-bottom: 20px; }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .cta-sub { font-size: 1.05rem; color: rgba(255,255,255,0.7); margin-bottom: 44px; font-weight: 300; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: #fff;
+      color: var(--deep);
+      padding: 16px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(0,0,0,0.2); }
+    .btn-outline-white {
+      border: 2px solid rgba(255,255,255,0.5);
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+    .cta-trust { display: flex; gap: 32px; justify-content: center; margin-top: 48px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.65); font-size: 0.82rem; }
+    .trust-item span:first-child { font-size: 1.1rem; }
+
+    /* ===================== CONTACT ===================== */
+    #contact { background: var(--warm-white); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info {}
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(212,184,150,0.25);
+    }
+    .contact-icon {
+      width: 48px; height: 48px;
+      background: rgba(139,175,133,0.15);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .contact-detail-title { font-weight: 600; font-size: 0.88rem; color: var(--deep); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .contact-detail-text { font-size: 0.9rem; color: var(--text-light); line-height: 1.5; }
+    .contact-detail-text a { color: var(--terracotta); text-decoration: none; }
+
+    .hours-grid { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+    .hours-row { font-size: 0.85rem; color: var(--text-light); display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed rgba(212,184,150,0.3); }
+    .hours-row strong { color: var(--deep); }
+    .open-badge { background: rgba(92,128,87,0.15); color: var(--sage-dark); font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-left: 8px; }
+
+    .contact-form-wrap {
+      background: #fff;
+      border-radius: 28px;
+      padding: 40px;
+      border: 1px solid rgba(212,184,150,0.2);
+      box-shadow: 0 8px 32px rgba(60,48,40,0.06);
+    }
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--deep);
+      margin-bottom: 6px;
+    }
+    .form-sub { font-size: 0.85rem; color: var(--text-light); margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-label { font-size: 0.78rem; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 8px; }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--cream);
+      border: 1.5px solid rgba(212,184,150,0.4);
+      border-radius: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(139,175,133,0.15);
+    }
+    .form-textarea { min-height: 100px; resize: vertical; }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--terracotta);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 8px;
+      box-shadow: 0 8px 24px rgba(201,107,63,0.3);
+    }
+    .form-submit:hover { background: var(--brown); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,107,63,0.4); }
+
+    /* ===================== MAP STRIP ===================== */
+    .map-strip {
+      background: var(--cream);
+      padding: 0;
+      height: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #B8D4B2 0%, #8BAF85 50%, #5C8057 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .map-pin-wrap {
+      text-align: center;
+      position: relative;
+    }
+    .map-pin { font-size: 3rem; display: block; animation: pinBounce 2s ease-in-out infinite; }
+    @keyframes pinBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .map-address-chip {
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 24px;
+      box-shadow: 0 12px 40px rgba(60,48,40,0.15);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--deep);
+      margin-top: 12px;
+    }
+    .map-address-chip span { color: var(--text-light); font-weight: 400; display: block; font-size: 0.78rem; margin-top: 2px; }
+    .map-cta-btn {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--terracotta);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.25s;
+    }
+    .map-cta-btn:hover { background: var(--brown); }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--deep);
+      color: rgba(255,255,255,0.7);
+      padding: 60px 8% 32px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .nav-logo-text { color: #fff; font-size: 1.8rem; }
+    .footer-tagline { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-top: 12px; max-width: 260px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 24px; }
+    .social-icon {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      transition: background 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .social-icon:hover { background: var(--terracotta); }
+
+    .footer-col-title {
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--sage-light); }
+
+    .footer-newsletter {}
+    .newsletter-input-wrap { position: relative; margin-top: 4px; }
+    .newsletter-input {
+      width: 100%;
+      padding: 12px 50px 12px 16px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.35); }
+    .newsletter-input:focus { border-color: var(--sage); }
+    .newsletter-btn {
+      position: absolute;
+      right: 5px; top: 50%;
+      transform: translateY(-50%);
+      background: var(--terracotta);
+      border: none;
+      color: #fff;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background 0.2s;
+    }
+    .newsletter-btn:hover { background: var(--terracotta-light); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 1024px) {
+      section { padding: 72px 5%; }
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { display: none; }
+      .hero-left { padding: 80px 5% 60px; }
+      #about, .exp-inner, .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-image-col { max-width: 400px; }
+      .services-grid, .pricing-grid, .test-grid, .videos-grid, .ba-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:nth-child(4) { grid-column: span 1; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .services-grid, .pricing-grid, .test-grid, .videos-grid, .ba-grid, .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+      .about-features { grid-template-columns: 1fr; }
+      .exp-certs { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .cta-actions { flex-direction: column; align-items: center; }
+      .pricing-card.popular { transform: none; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-paw"></i>
-                <span>Katy's Grooming</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li><a href="#reviews" class="nav-link">Reviews</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="hero" id="home">
-        <div class="hero-content">
-            <h1>Welcome to Katy's Grooming</h1>
-            <p>Professional Pet Care Services</p>
-            <p class="tagline">With love and dedication - Quality care for your beloved pets</p>
-            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                Book an Appointment
-            </button>
-        </div>
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?w=600&h=400&fit=crop" alt="Professional dog grooming" class="hero-image">
-        </div>
-        <div class="hero-mountains"></div>
-    </header>
-
-    <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>For over 10 years, pet owners have trusted Katy's Grooming for professional pet care services. Our comfortable grooming studio combines warm hospitality with modern pet care techniques.</p>
-                    <p>We treat every pet like a family member and understand that your beloved companions deserve the best attention.</p>
-                    <div class="stats">
-                        <div class="stat">
-                            <h3>4.7★</h3>
-                            <p>Rating</p>
-                        </div>
-                        <div class="stat">
-                            <h3>500+</h3>
-                            <p>Happy Customers</p>
-                        </div>
-                        <div class="stat">
-                            <h3>10+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-dog"></i>
-                        <i class="fas fa-cat"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <p class="section-subtitle">Complete grooming care for all pet types</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shower"></i>
-                    </div>
-                    <h3>Bath & Care</h3>
-                    <p>Professional bathing with high-quality, premium care products</p>
-                    <span class="price">From €25</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cut"></i>
-                    </div>
-                    <h3>Hair Cut & Styling</h3>
-                    <p>Individual cuts by breed and preference, expertly executed</p>
-                    <span class="price">From €40</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-scissors"></i>
-                    </div>
-                    <h3>Nail Care</h3>
-                    <p>Gentle nail and paw care for maximum comfort</p>
-                    <span class="price">From €15</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Coat Analysis</h3>
-                    <p>Special analysis and treatment for sensitive and problematic coats</p>
-                    <span class="price">From €35</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paw"></i>
-                    </div>
-                    <h3>Ear/Eye Care</h3>
-                    <p>Specialized cleaning of ears and eye areas with gentle methods</p>
-                    <span class="price">From €12</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Premium Wellness</h3>
-                    <p>Comprehensive wellness treatment with aromatherapy elements</p>
-                    <span class="price">From €80</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2>Our Work</h2>
-            <p class="section-subtitle">See our amazing transformations</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder dog-1">
-                        <i class="fas fa-dog"></i>
-                        <span>Fluffy's Transformation</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder cat-1">
-                        <i class="fas fa-cat"></i>
-                        <span>Whiskers After Care</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder dog-2">
-                        <i class="fas fa-dog"></i>
-                        <span>Max's Styling</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder cat-2">
-                        <i class="fas fa-cat"></i>
-                        <span>Luna's Wellness</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder dog-3">
-                        <i class="fas fa-dog"></i>
-                        <span>Happy Customers</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder dog-4">
-                        <i class="fas fa-dog"></i>
-                        <span>Happy Trio</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="reviews" id="reviews">
-        <div class="container">
-            <h2>Customer Reviews</h2>
-            <p class="section-subtitle">What our customers say about us</p>
-            
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Katy is a top-notch groomer. I love how my dogs look when they're done. She's worth the drive! If you're looking for a groomer who loves her job and loves dogs, look no further."</p>
-                    <div class="reviewer">
-                        <strong>Melissa S.</strong>
-                        <span>Munich</span>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"My two dogs won't let us near their paws at home and totally freak out during nail trimming. But Katy has magic powers! They let her trim their nails without any fuss, and the results are fantastic."</p>
-                    <div class="reviewer">
-                        <strong>Nicole R.</strong>
-                        <span>Salzburg</span>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"My senior cat needs special care for matted fur. Katy does an excellent job - the cut is great and my cat's fur is so soft afterward. She comes home acting years younger!"</p>
-                    <div class="reviewer">
-                        <strong>Cheryl J.</strong>
-                        <span>Innsbruck</span>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Super friendly and very reasonable prices. Katy really knows how to calm animals and makes every pet happy. I highly recommend her services to anyone looking for professional care."</p>
-                    <div class="reviewer">
-                        <strong>Josef G.</strong>
-                        <span>Vienna</span>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"It's wonderful to see how all her customers - both people and pets - love her. She brings real passion to her work and treats every animal with genuine care and kindness."</p>
-                    <div class="reviewer">
-                        <strong>Anna K.</strong>
-                        <span>Graz</span>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"I had an emergency situation and Katy helped me the same day. She's not just a great groomer, but also a wonderful person. Thank you for going above and beyond!"</p>
-                    <div class="reviewer">
-                        <strong>Thomas M.</strong>
-                        <span>Linz</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing">
-        <div class="container">
-            <h2>Pricing Overview</h2>
-            <p class="section-subtitle">Transparent pricing for all services</p>
-            
-            <div class="pricing-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Service</th>
-                            <th>Small (up to 5kg)</th>
-                            <th>Medium (5-15kg)</th>
-                            <th>Large (15-30kg)</th>
-                            <th>X-Large (30kg+)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Hair Cut & Bath</td>
-                            <td>€45</td>
-                            <td>€55</td>
-                            <td>€70</td>
-                            <td>€90</td>
-                        </tr>
-                        <tr>
-                            <td>Bath & Drying Only</td>
-                            <td>€25</td>
-                            <td>€35</td>
-                            <td>€45</td>
-                            <td>€60</td>
-                        </tr>
-                        <tr>
-                            <td>Hair Cut Only</td>
-                            <td>€35</td>
-                            <td>€40</td>
-                            <td>€55</td>
-                            <td>€70</td>
-                        </tr>
-                        <tr>
-                            <td>Nail Care</td>
-                            <td>€12</td>
-                            <td>€15</td>
-                            <td>€18</td>
-                            <td>€20</td>
-                        </tr>
-                        <tr>
-                            <td>Premium Wellness</td>
-                            <td>€65</td>
-                            <td>€80</td>
-                            <td>€100</td>
-                            <td>€120</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="pricing-note">* Prices may vary depending on coat condition and special requirements. Contact us for a personalized quote!</p>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-us">
-        <div class="container">
-            <h2>Why Choose Katy's Grooming?</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h3>Certified & Experienced</h3>
-                    <p>Professional certification and over 10 years of practical experience in pet care</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Quality Products</h3>
-                    <p>Only premium and eco-friendly grooming products for your pet's health</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Pet-Friendly Approach</h3>
-                    <p>Calm atmosphere, gentle techniques and individual care for every pet</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield"></i>
-                    </div>
-                    <h3>Safe Environment</h3>
-                    <p>Comfortable and secure facility with modern equipment</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Flexible Scheduling</h3>
-                    <p>Flexible appointment booking, emergency appointments available</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-smile"></i>
-                    </div>
-                    <h3>Creative & Customized</h3>
-                    <p>Personalized cuts and styles according to your wishes</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p class="section-subtitle">Book an appointment today</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Address</h3>
-                            <p>Main Street 42<br>Vienna, Austria</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Phone</h3>
-                            <p><a href="tel:+43123456789">+43 1 234 567 89</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p><a href="mailto:info@katysgrooming.at">info@katysgrooming.at</a></p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h3>WhatsApp</h3>
-                            <p><a href="https://wa.me/43123456789" target="_blank">Message us on WhatsApp</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Opening Hours</h3>
-                            <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 2:00 PM<br>Sunday: Closed</p>
-                        </div>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
-                    </div>
-                </div>
-
-                <form class="contact-form" onsubmit="handleFormSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Name*</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email*</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="pet">Pet Name*</label>
-                        <input type="text" id="pet" name="pet" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="service">Service*</label>
-                        <select id="service" name="service" required>
-                            <option value="">-- Select a Service --</option>
-                            <option value="bath">Bath & Care</option>
-                            <option value="cut">Hair Cut & Styling</option>
-                            <option value="nails">Nail Care</option>
-                            <option value="analysis">Coat Analysis</option>
-                            <option value="wellness">Premium Wellness</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Special requests or requirements..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-button">Request Appointment</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Katy's Grooming</h3>
-                    <p>Your trusted pet grooming service in Vienna and surrounding areas since 2014. Professional care with a personal touch.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Navigation</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#reviews">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+43123456789">+43 1 234 567 89</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@katysgrooming.at">info@katysgrooming.at</a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> Main Street 42, Vienna</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Find Us</h3>
-                    <div class="footer-socials">
-                        <a href="#" class="footer-social"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="footer-social"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="footer-social"><i class="fab fa-google"></i></a>
-                        <a href="#" class="footer-social"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Katy's Grooming. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Imprint</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Alpine Mountains Decoration -->
-    <div class="alpine-decoration">
-        <svg viewBox="0 0 1200 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,150 L100,50 L200,120 L300,40 L400,110 L500,30 L600,100 L700,50 L800,120 L900,60 L1000,130 L1100,40 L1200,100 L1200,300 L0,300 Z" fill="#8B4513" opacity="0.1"/>
-        </svg>
+  <!-- ==================== NAVBAR ==================== -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-paw">🐾</div>
+      <div class="nav-logo-text">
+        Katy's Grooming
+        <span>Austin, Texas</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta">Book Now</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
     </div>
+  </nav>
 
-    <script src="script.js"></script>
+  <!-- ==================== HERO ==================== -->
+  <section id="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-left">
+      <div class="hero-badge">⭐ Rated 4.7 · Northwest Austin's Favorite</div>
+      <h1 class="hero-title">
+        Where Every Pet<br>Leaves <em>Happy</em><br>& Beautiful
+      </h1>
+      <p class="hero-sub">
+        Austin's most-loved groomer, Katy brings warmth, expertise, and genuine love to every furry guest. Located in Balcones Animal Hospital — because your pet deserves the best.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book an Appointment</a>
+        <a href="#services" class="btn-secondary">View Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">4.7★</div>
+          <div class="stat-label">Google Rating</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Happy Pets</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-image-wrap">
+        <div class="hero-img-main">
+          <div class="hero-dog-illustration">🐩</div>
+        </div>
+        <div class="hero-badge-float top-left">
+          <div class="badge-icon">✂️</div>
+          <div>
+            <div class="badge-text">Expert Grooming</div>
+            <div class="badge-sub">Dogs & Cats Welcome</div>
+          </div>
+        </div>
+        <div class="hero-badge-float bottom-right">
+          <div class="badge-icon">💖</div>
+          <div>
+            <div class="badge-text">Fear-Free Zone</div>
+            <div class="badge-sub">Gentle & Loving Care</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about">
+    <div class="about-image-col reveal">
+      <div class="about-main-frame">🐕</div>
+      <div class="about-accent-box">
+        <div class="num">10+</div>
+        <div class="label">Years of Love</div>
+      </div>
+    </div>
+    <div class="about-text-col reveal">
+      <span class="section-tag">✦ Our Story</span>
+      <h2 class="section-title">Katy's Not Just a<br>Groomer — She's <em>Family</em></h2>
+      <p class="section-body">
+        Nestled inside Balcones Animal Hospital on McNeil Drive, Katy's Grooming has been a beloved Austin institution for over a decade. What started as one woman's passion for animals has blossomed into Northwest Austin's most trusted grooming studio.
+      </p>
+      <p class="section-body" style="margin-top: 16px;">
+        Katy has an incredible gift with animals — even the most anxious dogs and skittish cats leave relaxed, fluffy, and beaming. Her regulars drive across Austin because nobody does it quite like Katy.
+      </p>
+      <div class="about-features">
+        <div class="about-feat">
+          <div class="about-feat-icon">🐶</div>
+          <div class="about-feat-title">Dog Specialist</div>
+          <div class="about-feat-text">All breeds, all sizes, all temperaments. Katy handles them all with ease.</div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">🐱</div>
+          <div class="about-feat-title">Cat Grooming</div>
+          <div class="about-feat-text">Senior cats, matted fur, lion cuts — cat grooming done right.</div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">💅</div>
+          <div class="about-feat-title">Nail Magic</div>
+          <div class="about-feat-text">Even nail-phobic pups cooperate. Katy's got a special touch.</div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">❤️</div>
+          <div class="about-feat-title">Fear-Free</div>
+          <div class="about-feat-text">Patient, gentle, calm — your pet's comfort always comes first.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES ==================== -->
+  <section id="services">
+    <div class="services-header reveal">
+      <span class="section-tag">✦ What We Offer</span>
+      <h2 class="section-title">Grooming Services Tailored<br>to Every <em>Paw-sonality</em></h2>
+      <p class="section-body">From a quick nail trim to a full spa day — we have a service for every pet and every budget.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-icon">✂️</span>
+        <h3 class="service-title">Full Groom</h3>
+        <p class="service-text">The complete spa experience — your pup arrives scruffy and leaves looking (and smelling) absolutely stunning.</p>
+        <ul class="service-includes">
+          <li>Bath with premium shampoo</li>
+          <li>Blow dry & brush out</li>
+          <li>Breed-specific haircut</li>
+          <li>Nail trim & ear cleaning</li>
+          <li>Bandana or bow finish</li>
+        </ul>
+        <div class="service-price">From $55 <span>/ per visit</span></div>
+      </div>
+      <div class="service-card featured reveal">
+        <span class="service-icon">🌟</span>
+        <h3 class="service-title">Spa Package</h3>
+        <p class="service-text">Our premium offering — the full groom experience plus deep conditioning, teeth brushing, and paw balm.</p>
+        <ul class="service-includes">
+          <li>Everything in Full Groom</li>
+          <li>Deep conditioning treatment</li>
+          <li>Teeth brushing</li>
+          <li>Paw pad balm</li>
+          <li>Deshedding treatment</li>
+        </ul>
+        <div class="service-price">From $80 <span>/ per visit</span></div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">🐱</span>
+        <h3 class="service-title">Cat Grooming</h3>
+        <p class="service-text">Gentle, stress-conscious grooming for even the most particular felines. Senior cats especially welcome.</p>
+        <ul class="service-includes">
+          <li>Dematting & lion cuts</li>
+          <li>Bath & blow dry</li>
+          <li>Nail trim</li>
+          <li>Brush out & style</li>
+          <li>Senior cat-friendly</li>
+        </ul>
+        <div class="service-price">From $65 <span>/ per visit</span></div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">💅</span>
+        <h3 class="service-title">Nail Trim</h3>
+        <p class="service-text">Quick, gentle, and fuss-free. Even pups who hate nail trims leave without a complaint when Katy's involved.</p>
+        <ul class="service-includes">
+          <li>Front & back paws</li>
+          <li>Gentle technique</li>
+          <li>Nail filing option</li>
+          <li>Paw inspection</li>
+        </ul>
+        <div class="service-price">From $15 <span>/ per visit</span></div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">🛁</span>
+        <h3 class="service-title">Bath & Brush</h3>
+        <p class="service-text">A thorough bath and professional blow-dry — perfect for maintenance between full grooms.</p>
+        <ul class="service-includes">
+          <li>Shampoo & condition</li>
+          <li>Blow dry</li>
+          <li>Full brush out</li>
+          <li>Ear cleaning</li>
+        </ul>
+        <div class="service-price">From $35 <span>/ per visit</span></div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">🎀</span>
+        <h3 class="service-title">Add-Ons</h3>
+        <p class="service-text">Customize any appointment with our à-la-carte extras designed for those who want that extra sparkle.</p>
+        <ul class="service-includes">
+          <li>Teeth brushing +$10</li>
+          <li>Blueberry facial +$8</li>
+          <li>Flea & tick treatment</li>
+          <li>Deshedding +$15</li>
+        </ul>
+        <div class="service-price">From $8 <span>/ add-on</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRICING ==================== -->
+  <section id="pricing">
+    <div class="pricing-header reveal">
+      <span class="section-tag">✦ Transparent Pricing</span>
+      <h2 class="section-title">Simple, Honest <em>Pricing</em></h2>
+      <p class="section-body" style="margin: 0 auto;">No hidden fees, no surprises. Prices vary by breed and coat condition — call for a custom quote.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-name">Small Pals</div>
+        <p class="pricing-desc">Under 20 lbs · Shih Tzu, Chihuahua, Maltese</p>
+        <div class="pricing-amount"><sup>$</sup>45</div>
+        <div class="pricing-pet">Starting price</div>
+        <ul class="pricing-list">
+          <li>Bath & dry</li>
+          <li>Breed haircut</li>
+          <li>Nail trim</li>
+          <li>Ear cleaning</li>
+          <li>Bow or bandana</li>
+        </ul>
+        <a href="#contact" class="btn-book">Book Now</a>
+      </div>
+      <div class="pricing-card popular reveal">
+        <div class="popular-badge">Most Popular</div>
+        <div class="pricing-name">Medium Dogs</div>
+        <p class="pricing-desc">20–50 lbs · Cocker Spaniel, Beagle, Corgi</p>
+        <div class="pricing-amount"><sup>$</sup>65</div>
+        <div class="pricing-pet">Starting price</div>
+        <ul class="pricing-list">
+          <li>Full groom package</li>
+          <li>Breed-specific cut</li>
+          <li>Nail trim + file</li>
+          <li>Ear cleaning</li>
+          <li>Bandana finish</li>
+        </ul>
+        <a href="#contact" class="btn-book">Book Now</a>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-name">Large Dogs</div>
+        <p class="pricing-desc">50+ lbs · Golden, Doodles, Aussie, Husky</p>
+        <div class="pricing-amount"><sup>$</sup>85</div>
+        <div class="pricing-pet">Starting price</div>
+        <ul class="pricing-list">
+          <li>Full groom package</li>
+          <li>Deshedding treatment</li>
+          <li>Nail trim + file</li>
+          <li>Ear cleaning</li>
+          <li>Premium finish</li>
+        </ul>
+        <a href="#contact" class="btn-book">Book Now</a>
+      </div>
+    </div>
+    <p style="text-align:center; font-size: 0.82rem; color: var(--text-light); margin-top: 28px;">Prices are starting rates. Final price may vary based on coat condition, behavior, and breed. Call <a href="tel:+15129148100" style="color:var(--terracotta);">512-914-8100</a> for a custom quote.</p>
+  </section>
+
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section id="experience">
+    <div class="exp-inner">
+      <div class="exp-text reveal">
+        <span class="section-tag" style="color: var(--terracotta-light);">✦ Our Journey</span>
+        <h2 class="section-title">Over a Decade of<br><em>Pawfessional</em> Excellence</h2>
+        <p class="section-body">Katy's journey from passionate animal lover to Austin's most-trusted groomer is a story of dedication, heart, and thousands of happy pets.</p>
+        <div class="exp-timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">🎓</div>
+            <div class="timeline-content">
+              <div class="timeline-year">2012 · The Beginning</div>
+              <div class="timeline-title">Certified & Ready</div>
+              <div class="timeline-text">Katy completed professional grooming certification and opened her first studio in Northwest Austin.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">🏠</div>
+            <div class="timeline-content">
+              <div class="timeline-year">2017 · A New Home</div>
+              <div class="timeline-title">Moved to Balcones Animal Hospital</div>
+              <div class="timeline-text">Katy joined forces with Balcones Animal Hospital, bringing her loyal client base along for the ride.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">⭐</div>
+            <div class="timeline-content">
+              <div class="timeline-year">2020 · Recognition</div>
+              <div class="timeline-title">Austin's Hidden Gem</div>
+              <div class="timeline-text">Word-of-mouth recognition exploded. Clients now drive 30+ minutes just to see Katy.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">💖</div>
+            <div class="timeline-content">
+              <div class="timeline-year">Today · Still Going Strong</div>
+              <div class="timeline-title">500+ Happy Families</div>
+              <div class="timeline-text">A thriving community of Austin pet parents who trust Katy with their most beloved family members.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-certs reveal">
+        <div class="cert-card">
+          <div class="cert-icon">🏆</div>
+          <div class="cert-title">Certified Professional Groomer</div>
+          <div class="cert-text">Nationally certified with ongoing continuing education in modern grooming techniques.</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🩺</div>
+          <div class="cert-title">Vet Clinic Partnership</div>
+          <div class="cert-text">Located inside Balcones Animal Hospital — health and grooming under one trusted roof.</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🐾</div>
+          <div class="cert-title">Fear-Free Practices</div>
+          <div class="cert-text">Trained in low-stress handling techniques for anxious and reactive pets.</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">✂️</div>
+          <div class="cert-title">All Breeds Specialist</div>
+          <div class="cert-text">From toy breeds to giant dogs, from fluffy cats to seniors — no pet is too challenging.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BEFORE / AFTER ==================== -->
+  <section id="before-after">
+    <div class="ba-header reveal">
+      <span class="section-tag">✦ The Katy Effect</span>
+      <h2 class="section-title">Before & After — The<br><em>Transformation</em> Speaks</h2>
+      <p class="section-body" style="margin: 0 auto;">Every pup and kitty leaves looking their absolute best. See for yourself.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card reveal">
+        <div class="ba-images">
+          <div class="ba-img ba-before">🐕</div>
+          <div class="ba-img ba-after">🐩</div>
+          <div class="ba-divider">VS</div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-breed">Golden Doodle — Max</div>
+          <div class="ba-service">Full Groom + Deshedding Treatment</div>
+        </div>
+        <div class="ba-labels">
+          <span class="ba-label before">Before</span>
+          <span class="ba-label after">After</span>
+        </div>
+      </div>
+      <div class="ba-card reveal">
+        <div class="ba-images">
+          <div class="ba-img ba-before">🐈</div>
+          <div class="ba-img ba-after">🐈‍⬛</div>
+          <div class="ba-divider">VS</div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-breed">Persian Cat — Luna</div>
+          <div class="ba-service">Cat Grooming + Dematting</div>
+        </div>
+        <div class="ba-labels">
+          <span class="ba-label before">Before</span>
+          <span class="ba-label after">After</span>
+        </div>
+      </div>
+      <div class="ba-card reveal">
+        <div class="ba-images">
+          <div class="ba-img ba-before">🦮</div>
+          <div class="ba-img ba-after">🐕‍🦺</div>
+          <div class="ba-divider">VS</div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-breed">Shih Tzu — Biscuit</div>
+          <div class="ba-service">Full Groom + Spa Package</div>
+        </div>
+        <div class="ba-labels">
+          <span class="ba-label before">Before</span>
+          <span class="ba-label after">After</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GALLERY ==================== -->
+  <section id="gallery">
+    <div class="gallery-header reveal">
+      <span class="section-tag">✦ Happy Clients</span>
+      <h2 class="section-title">A Gallery of <em>Gorgeous</em> Pets</h2>
+      <p class="section-body" style="margin: 0 auto;">Every single one of these babies left with a wag, a purr, or a happy trot. Freshly groomed and full of joy.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <div class="gallery-img g1">🐩</div>
+        <div class="gallery-overlay"><span>View Photo</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img g2">🐕</div>
+        <div class="gallery-overlay"><span>View Photo</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img g3">🐱</div>
+        <div class="gallery-overlay"><span>View Photo</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img g4">🦮</div>
+        <div class="gallery-overlay"><span>View Photo</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img g5">🐈</div>
+        <div class="gallery-overlay"><span>View Photo</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img g6" style="font-size: 48px;">🐕‍🦺</div>
+        <div class="gallery-overlay"><span>View Photo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SOCIAL VIDEOS ==================== -->
+  <section id="videos">
+    <div class="videos-header reveal">
+      <span class="section-tag">✦ Katy's Reels</span>
+      <h2 class="section-title">Watch the Magic <em>Happen</em></h2>
+      <p class="section-body" style="margin: 0 auto;">Follow us on Instagram & TikTok for daily doses of freshly groomed goodness, transformation reels, and the cutest pets in Austin.</p>
+    </div>
+    <div class="videos-grid">
+      <div class="video-card reveal">
+        <div class="video-thumb v1">
+          🐩
+          <div class="video-play">
+            <div class="play-btn">▶</div>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">Doodle Transformation — Before & After Reel</div>
+          <div class="video-meta">
+            <span class="social-tag">📸 Instagram</span>
+            <span class="video-views">👁 12.4K views</span>
+          </div>
+        </div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-thumb v2">
+          🐱
+          <div class="video-play">
+            <div class="play-btn">▶</div>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">Senior Cat's First Lion Cut — She Loves It!</div>
+          <div class="video-meta">
+            <span class="social-tag">🎵 TikTok</span>
+            <span class="video-views">👁 38.7K views</span>
+          </div>
+        </div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-thumb v3">
+          🐕
+          <div class="video-play">
+            <div class="play-btn">▶</div>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">The Dog Who Hates Nail Trims… Until Now 🤣</div>
+          <div class="video-meta">
+            <span class="social-tag">📸 Instagram</span>
+            <span class="video-views">👁 24.1K views</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="#" class="btn-secondary" style="display: inline-block;">Follow @KatysGroomingATX 🐾</a>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section id="testimonials">
+    <div class="test-header reveal">
+      <span class="section-tag">✦ Happy Pet Parents</span>
+      <h2 class="section-title">Austin Loves <em>Katy</em></h2>
+    </div>
+    <div class="rating-summary reveal">
+      <div class="rating-num">4.7</div>
+      <div class="stars-overall">
+        <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+      </div>
+      <div class="rating-info">Based on 15 Google Reviews · Verified Customer Testimonials</div>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <span class="quote-mark">"</span>
+        <div class="test-stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+        <p class="test-text">Katy is a top notch groomer. I love how my dogs look when done. When she moved to her current location my drive time doubled — well, she's worth it y'all. If you're looking for a good groomer who truly loves her job and loves dogs, look no further.</p>
+        <div class="test-author">
+          <div class="test-avatar">👩</div>
+          <div>
+            <div class="test-name">Melisa Steinke</div>
+            <div class="test-role">Local Guide · 2 years ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card featured reveal">
+        <span class="quote-mark">"</span>
+        <div class="test-stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+        <p class="test-text">I don't know what kind of magic powers Katy has, but both my dogs let her trim their nails without a fuss — and she did an amazing job! They absolutely won't let us near their paws at home. So grateful we found someone they trust.</p>
+        <div class="test-author">
+          <div class="test-avatar">👩</div>
+          <div>
+            <div class="test-name">Nicole Renna</div>
+            <div class="test-role">Local Guide · 10 months ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <span class="quote-mark">"</span>
+        <div class="test-stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+        <p class="test-text">I take my senior cat to Katy's for matting removal. Katy always does a great job — the cut is wonderful and my cat's fur is so soft. My cat will act years younger when she gets home. I can always tell she's been well taken care of.</p>
+        <div class="test-author">
+          <div class="test-avatar">👩</div>
+          <div>
+            <div class="test-name">Cheryl Jennings</div>
+            <div class="test-role">Local Guide · 28 reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="https://maps.google.com" target="_blank" class="btn-secondary" style="display: inline-block;">Read All Reviews on Google 📍</a>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section id="cta">
+    <div class="cta-inner reveal">
+      <span class="cta-paw">🐾</span>
+      <h2 class="cta-title">Your Pet's Best Groom<br>is Just One Call Away</h2>
+      <p class="cta-sub">Join hundreds of Austin pet families who trust Katy with their most beloved companions. New clients always welcome — let's get your fur baby looking fabulous.</p>
+      <div class="cta-actions">
+        <a href="tel:+15129148100" class="btn-white">📞 Call 512-914-8100</a>
+        <a href="#contact" class="btn-outline-white">Book Online</a>
+      </div>
+      <div class="cta-trust">
+        <span class="trust-item"><span>✅</span> No Hidden Fees</span>
+        <span class="trust-item"><span>💖</span> Fear-Free Promise</span>
+        <span class="trust-item"><span>📍</span> NW Austin</span>
+        <span class="trust-item"><span>⭐</span> 4.7 Star Rated</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="reveal">
+        <span class="section-tag">✦ Find Us</span>
+        <h2 class="section-title">Get in <em>Touch</em></h2>
+        <p class="section-body">We'd love to meet your furry family member. Reach out to book, ask questions, or simply say hi!</p>
+
+        <div style="margin-top: 36px;">
+          <div class="contact-detail">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-detail-title">Location</div>
+              <div class="contact-detail-text">6909 McNeil Dr, Austin, TX 78729<br>Located inside Balcones Animal Hospital</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-detail-title">Phone</div>
+              <div class="contact-detail-text"><a href="tel:+15129148100">(512) 914-8100</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <div class="contact-detail-title">Hours <span class="open-badge">Open Now</span></div>
+              <div class="hours-grid">
+                <div class="hours-row"><strong>Mon–Fri</strong> <span>8:00 AM – 5:00 PM</span></div>
+                <div class="hours-row"><strong>Saturday</strong> <span>8:00 AM – 3:30 PM</span></div>
+                <div class="hours-row"><strong>Sunday</strong> <span>Closed</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div class="contact-detail-title">Social Media</div>
+              <div class="contact-detail-text">Follow @KatysGroomingATX on Instagram & TikTok for adorable transformation reels!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <div class="form-title">Book an Appointment</div>
+        <div class="form-sub">Tell us about your pet and we'll get back to you within 24 hours!</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-input" placeholder="Jane Smith" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-input" placeholder="(512) 000-0000" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Pet's Name</label>
+            <input type="text" class="form-input" placeholder="Biscuit" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Breed</label>
+            <input type="text" class="form-input" placeholder="Golden Doodle" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Service Needed</label>
+          <select class="form-select">
+            <option>Full Groom</option>
+            <option>Spa Package</option>
+            <option>Cat Grooming</option>
+            <option>Bath & Brush</option>
+            <option>Nail Trim Only</option>
+            <option>Not Sure — I'll Ask Katy!</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Additional Notes</label>
+          <textarea class="form-textarea" placeholder="Any special requests, allergies, or things Katy should know about your pet..."></textarea>
+        </div>
+        <button class="form-submit" onclick="alert('Thanks! We\'ll reach out within 24 hours. 🐾')">Request Appointment →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAP STRIP ==================== -->
+  <div class="map-strip">
+    <div class="map-placeholder">
+      <div class="map-pin-wrap">
+        <span class="map-pin">📍</span>
+        <div class="map-address-chip">
+          6909 McNeil Dr, Austin, TX 78729
+          <span>Balcones Animal Hospital · Northwest Austin</span>
+        </div>
+        <div style="margin-top: 12px;">
+          <a href="https://maps.google.com/?q=6909+McNeil+Dr+Austin+TX+78729" target="_blank" class="map-cta-btn">Open in Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo-text" style="color:#fff; font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:700;">
+          Katy's Grooming
+        </div>
+        <p class="footer-tagline">Austin's most-loved pet groomer — where every tail wags a little harder and every purr comes a little louder. 🐾</p>
+        <div class="footer-socials">
+          <a class="social-icon" href="#" title="Instagram">📷</a>
+          <a class="social-icon" href="#" title="TikTok">🎵</a>
+          <a class="social-icon" href="#" title="Facebook">👍</a>
+          <a class="social-icon" href="tel:+15129148100" title="Call Us">📞</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Katy</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Book Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Full Groom</a></li>
+          <li><a href="#services">Spa Package</a></li>
+          <li><a href="#services">Cat Grooming</a></li>
+          <li><a href="#services">Bath & Brush</a></li>
+          <li><a href="#services">Nail Trim</a></li>
+          <li><a href="#services">Add-On Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <div class="footer-col-title">Stay in the Loop</div>
+        <p style="font-size:0.82rem; color:rgba(255,255,255,0.45); margin-bottom:16px; line-height:1.5;">Get cute pet photos & grooming tips delivered to your inbox. No spam, promise. 🐶</p>
+        <div class="newsletter-input-wrap">
+          <input type="email" class="newsletter-input" placeholder="your@email.com" />
+          <button class="newsletter-btn">→</button>
+        </div>
+        <p style="font-size:0.72rem; color:rgba(255,255,255,0.3); margin-top: 10px;">📍 6909 McNeil Dr, Austin TX 78729</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Katy's Grooming · Austin, Texas · All Rights Reserved</div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="tel:+15129148100">(512) 914-8100</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Stagger children
+          const children = entry.target.querySelectorAll('.service-card, .pricing-card, .test-card, .video-card, .ba-card, .gallery-item, .cert-card, .about-feat, .timeline-item');
+          children.forEach((child, i) => {
+            child.style.transitionDelay = `${i * 0.1}s`;
+            child.classList.add('visible');
+          });
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

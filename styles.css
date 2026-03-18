@@ -4,12 +4,12 @@
    ============================================= */
 
 :root {
-    --primary-color: #9DB4D1;        /* Soft Periwinkle Blue */
-    --secondary-color: #E8D4D4;      /* Soft Rose Blush */
-    --accent-color: #D4C8E8;         /* Soft Lavender */
-    --dark-color: #6B7A94;           /* Soft Dark Slate */
-    --light-color: #F8F5F2;          /* Soft Cream White */
-    --text-color: #333333;
+    --primary-color: #ff6600;        /* Orange */
+    --secondary-color: #ffecc5;      /* Light Peach */
+    --accent-color: #cc5200;         /* Burnt Orange */
+    --dark-color: #4d2103;           /* Dark Brown */
+    --light-color: #fffdef;          /* Off-White */
+    --text-color: #4d2103;
     --border-color: #DDD;
     --success-color: #4CAF50;
     
@@ -39,7 +39,7 @@ body {
     font-family: var(--font-family-main);
     color: var(--text-color);
     line-height: 1.6;
-    background-color: #FFFFFF;
+    background-color: #fffdef;
 }
 
 .container {
@@ -87,7 +87,7 @@ h2::after {
    ============================================= */
 
 .navbar {
-    background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
+    background: var(--secondary-color);
     padding: 1rem 0;
     position: sticky;
     top: 0;
